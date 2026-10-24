@@ -12,9 +12,12 @@
 <div class="top"><div class="badge"><strong>자유의 여신상 · 3D 착시 극장</strong><small>카메라 없는 원근 착시 실험</small></div><div class="badge" id="status">준비 중…</div></div>
 <div class="bottom"><div class="buttons"><button id="replay">▶ 등장 다시 보기</button><button id="toggle">⏸ 자동 회전 정지</button><button id="gyro">📱 기울이기 사용</button><button id="reset">↺ 시점 초기화</button></div><div class="help">한 손가락: 회전 · 두 손가락: 확대/축소 · 기울이기: 시점 변화<br><span class="note">화면 밖으로 실제 영상이 나오는 것은 아닙니다. 시각적 착시 실험입니다.</span></div></div>
 <div id="loading">자유의 여신상 3D 모델을 불러오는 중입니다…</div>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"}}
+</script>
 <script type="module">
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js';
-import {GLTFLoader} from 'https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 const scene=new THREE.Scene();scene.background=new THREE.Color(0x050815);
 const camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,.01,200);camera.position.set(0,0,9);
 const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.5;document.getElementById('scene').appendChild(renderer.domElement);
